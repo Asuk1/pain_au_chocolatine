@@ -10,7 +10,7 @@ SRC =  	 src/test.c \
 
 OBJ =	 $(SRC:.c=.o) \
 
-TEST_SRC =      tests/test_test.c \
+TEST_SRC =      tests/test_dop.c \
 
 TEST_NAME = 	unit_tests
 
@@ -41,7 +41,7 @@ fclean:	clean
 	$(RM) *.o
 	$(RM) $(TEST_NAME)
 
-run_tests:
+tests_run:
 	$(RM) *.gcda
 	$(RM) *.gcno
 	$(CC) -o $(TEST_NAME) $(SRC) $(TEST_SRC) $(CPPFLAGS) $(COVFLAGS)

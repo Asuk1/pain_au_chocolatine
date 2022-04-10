@@ -29,7 +29,7 @@ jobs:
             run: find . -path '*/tmp/*' -exec echo "::error file={},title="Unwanted file detected"::{}" \;
     check_program_compilation:
         name: check compilation
-        runs-on: unbuntu-latest
+        runs-on: ubuntu-latest
         container: epitechcontent/epitest-docker
         needs:
             - check_repository_cleanliness
@@ -46,7 +46,7 @@ jobs:
             run: make clean
     run_tests:
         name: check test
-        runs-on: unbuntu-latest
+        runs-on: ubuntu-latest
         container: epitechcontent/epitest-docker
         needs:
             - check_program_compilation

@@ -9,7 +9,7 @@ on:
             - "ga-ignore-*"
 
 env:
-    MIRROR_URL: git@github.com/EpitechPromo2026/B-DOP-200-PAR-2-1-chocolatine-julia.tran
+    MIRROR_URL: "git@github.com:EpitechPromo2026/B-DOP-200-PAR-2-1-chocolatine-julia.tran.git"
     EXECUTABLES: "test"
     
 jobs:

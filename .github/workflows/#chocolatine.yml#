@@ -17,7 +17,7 @@ jobs:
         name: check clean
         runs-on: unbuntu-latest
         steps:
-          - uses: action/checkout@v2
+            uses: action/checkout@v2
             with:
                 fetch-depth: 0
     check_program_compilation:
@@ -27,7 +27,7 @@ jobs:
         needs:
             - check_repository_cleanliness
         steps:
-          - uses: action/checkout@v2
+            uses: action/checkout@v2
             with:
                 fetch-depth: 0
             timeout_minutes: 2
@@ -41,7 +41,7 @@ jobs:
         needs:
             - check_program_compilation
         steps:
-          - uses: action/checkout@v2
+            uses: action/checkout@v2
             with:
                 fetch-depth: 0
             timeout_minutes: 2
@@ -52,10 +52,10 @@ jobs:
         needs:
             - run_tests 
         steps:
-          - uses: actions/checkout@v2
+            uses: actions/checkout@v2
             with:
                 fetch-depth: 0
-          - uses: pixta-dev/repository-mirroring-action@v1
+            uses: pixta-dev/repository-mirroring-action@v1
             with:
                 target_repo_url:
                     ${{ env.MIRROR_URL }}

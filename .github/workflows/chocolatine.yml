@@ -28,7 +28,7 @@ jobs:
           - name: Find tmp in directory
             run: find . -path '*/tmp/*' -exec echo "::error file={},title="Unwanted file detected"::{}" \;
           - name: Find if all file exits and can be executable
-            run: find . -path '*/tmp/*' -o -iname "*pain_au_chocolat*" -o -regextype posix-extended -regex '.*\.(~.a|o|so|gcda|gcno|gcov)' -o | grep -q . || exit 0 && exit 1
+            run: find . -path '*/tmp/*' -o -iname "*pain_au_chocolat*" -o -regextype posix-extended -regex '.*\.(~.a|o|so|gcda|gcno|gcov)' | grep -q . || exit 0 && exit 1
     check_program_compilation:
         name: check compilation
         runs-on: ubuntu-latest
@@ -46,6 +46,10 @@ jobs:
           - name: Compilation clean  
             timeout-minutes: 2
             run: make clean
+          - name: Executable
+            run:
+          - name: Not executable
+            run:
     run_tests:
         name: check test
         runs-on: ubuntu-latest

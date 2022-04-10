@@ -27,7 +27,7 @@ jobs:
         needs:
             - check_repository_cleanliness
         steps:
-	    uses: action/checkout@v2
+            uses: action/checkout@v2
             with:
                 fetch-depth: 0
             timeout_minutes: 2

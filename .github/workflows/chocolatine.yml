@@ -17,7 +17,8 @@ jobs:
         name: check clean
         runs-on: unbuntu-latest
         steps:
-          - uses: action/checkout@v2
+          - name: Check repository
+            uses: action/checkout@v2
             with:
                 fetch-depth: 0
     check_program_compilation:
@@ -26,12 +27,15 @@ jobs:
         container: epitechcontent/epitest-docker
         needs:
             - check_repository_cleanliness
-        steps:
-          - uses: action/checkout@v2
+        steps:        
+          - name: Check repository
+            uses: action/checkout@v2
             with:
                 fetch-depth: 0
+          - name: Compilation execution     
             timeout_minutes: 2
             run: make
+          - name: Compilation clean  
             timeout_minutes: 2
             run: make clean
     run_tests:
@@ -41,9 +45,11 @@ jobs:
         needs:
             - check_program_compilation
         steps:
-          - uses: action/checkout@v2
+          - name: Check repository
+            uses: action/checkout@v2
             with:
                 fetch-depth: 0
+          - name: Compilation test
             timeout_minutes: 2
             run: make tests_run
     push_to_mirror:
@@ -52,10 +58,12 @@ jobs:
         needs:
             - run_tests 
         steps:
-          - uses: actions/checkout@v2
+          - name: Check repository
+            uses: actions/checkout@v2
             with:
                 fetch-depth: 0
-          - uses: pixta-dev/repository-mirroring-action@v1
+          - name: Check mirorring
+            uses: pixta-dev/repository-mirroring-action@v1
             with:
                 target_repo_url:
                     ${{ env.MIRROR_URL }}

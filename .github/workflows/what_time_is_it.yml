@@ -1,9 +1,0 @@
-name: build
-on: [push, pull requests]
-jobs:
-    build:
-    runs-on: ubuntu-latest
-    steps:
-        -name: time
-         id: date
-         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"

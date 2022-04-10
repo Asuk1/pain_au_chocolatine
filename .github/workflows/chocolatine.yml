@@ -9,16 +9,16 @@ on:
             - "ga-ignore-*"
 
 env:
-    MIRROR_URL: github.com/EpitechPromo2026
-    EXECUTABLES: main.c
+    MIRROR_URL: git@github.com/EpitechPromo2026/B-DOP-200-PAR-2-1-chocolatine-julia.tran
+    EXECUTABLES: "test"
     
 jobs:
     check_repository_cleanliness:
         name: check clean
         runs-on: unbuntu-latest
         steps:
-            - uses: action/checkout@v2
-              with:
+            uses: action/checkout@v2
+            with:
                 fetch-depth: 0
     check_program_compilation:
         name: check compilation
@@ -27,12 +27,13 @@ jobs:
         needs:
             - check_repository_cleanliness
         steps:
-	        - uses: action/checkout@v2
-              with:
-              	fetch-depth: 0
-            - run: make
-              timeout_minutes: 2
-            -run: make clean
+	    uses: action/checkout@v2
+            with:
+                fetch-depth: 0
+            timeout_minutes: 2
+            run: make
+            timeout_minutes: 2
+            run: make clean
     run_tests:
         name: check test
         runs-on: unbuntu-latest

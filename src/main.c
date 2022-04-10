@@ -5,8 +5,9 @@
 ** main
 */
 
+#include "test.h"
 
 int main(int ac, char **av)
 {
-    return(0);
+    return(test(ac, av));
 }

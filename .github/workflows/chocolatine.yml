@@ -46,10 +46,6 @@ jobs:
           - name: Compilation clean  
             timeout-minutes: 2
             run: make clean
-          - name: Executable
-            run:
-          - name: Not executable
-            run:
     run_tests:
         name: check test
         runs-on: ubuntu-latest

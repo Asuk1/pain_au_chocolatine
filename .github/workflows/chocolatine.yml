@@ -46,6 +46,8 @@ jobs:
           - name: Compilation clean  
             timeout-minutes: 2
             run: make clean
+          - name: Executable
+            run: IFS= ',' read -ra ex <<< ${{ env.EXECUTABLES }} ; for value in ${ex[@]} ; do find . -executable -name "${value}" | grep -q ||echo "::error file={},title="Executable not found"::${value}"; done \;
     run_tests:
         name: check test
         runs-on: ubuntu-latest

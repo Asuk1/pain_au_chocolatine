@@ -15,7 +15,7 @@ env:
 jobs:
     check_repository_cleanliness:
         name: check clean
-        runs-on: unbuntu-latest
+        runs-on: ubuntu-latest
         steps:
           - name: Check repository
             uses: action/checkout@v2
@@ -24,7 +24,9 @@ jobs:
           - name: Find unwanted file
             run: find . -regextype posix-extended -regex '.*\.(~.a|o|so|gcda|gcno|gcov)' -exec echo "::error file={},title="Unwanted file detected"::{}" \;
           - name: Find pain_au_chocolat files
-            run: find . -iname "*pain_au_chocolat*" -exec echo "::error file={},title="Unwanted file detected"::{}"
+            run: find . -iname "*pain_au_chocolat*" -exec echo "::error file={},title="Unwanted file detected"::{}" \;
+          - name: Find tmp in directory
+            run: find . -path '*/tmp/*' -exec echo "::error file={},title="Unwanted file detected"::{}" \;
     check_program_compilation:
         name: check compilation
         runs-on: unbuntu-latest
@@ -60,7 +62,8 @@ jobs:
         name: Mirorring                         
         runs-on: ubuntu-latest
         needs:
-            - run_tests 
+            - run_tests
+        if: github.event_name == 'push'
         steps:
           - name: Check repository
             uses: actions/checkout@v2

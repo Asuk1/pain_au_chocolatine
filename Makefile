@@ -14,7 +14,7 @@ TEST_SRC =      tests/test_test.c \
 
 TEST_NAME = 	unit_tests
 
-NAME =	   test
+NAME =	   dop
 
 INC = 	 include/
 

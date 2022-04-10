@@ -18,7 +18,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Check repository
-            uses: action/checkout@v2
+            uses: actions/checkout@v2
             with:
                 fetch-depth: 0
           - name: Find unwanted file
@@ -35,7 +35,7 @@ jobs:
             - check_repository_cleanliness
         steps:        
           - name: Check repository
-            uses: action/checkout@v2
+            uses: actions/checkout@v2
             with:
                 fetch-depth: 0
           - name: Compilation execution     
@@ -52,7 +52,7 @@ jobs:
             - check_program_compilation
         steps:
           - name: Check repository
-            uses: action/checkout@v2
+            uses: actions/checkout@v2
             with:
                 fetch-depth: 0
           - name: Compilation test

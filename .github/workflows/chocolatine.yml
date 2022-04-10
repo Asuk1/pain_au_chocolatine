@@ -23,6 +23,8 @@ jobs:
                 fetch-depth: 0
           - name: Find unwanted file
             run: find . -regextype posix-extended -regex '.*\.(~.a|o|so|gcda|gcno|gcov)' -exec echo "::error file={},title="Unwanted file detected"::{}" \;
+          - name: Find pain_au_chocolat files
+            run: find . -iname "*pain_au_chocolat*" -exec echo "::error file={},title="Unwanted file detected"::{}"
     check_program_compilation:
         name: check compilation
         runs-on: unbuntu-latest

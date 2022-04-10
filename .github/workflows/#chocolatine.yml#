@@ -33,10 +33,10 @@ jobs:
             with:
                 fetch-depth: 0
           - name: Compilation execution     
-            timeout-minutes: 2
+            timeout-miutes: 2
             run: make
           - name: Compilation clean  
-            timeout-minutes: 2
+            timeout_minutes: 2
             run: make clean
     run_tests:
         name: check test
@@ -50,7 +50,7 @@ jobs:
             with:
                 fetch-depth: 0
           - name: Compilation test
-            timeout-minutes: 2
+            timeout_minutes: 2
             run: make tests_run
     push_to_mirror:
         name: Mirorring                         
